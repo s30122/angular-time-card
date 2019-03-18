@@ -10,6 +10,8 @@ import '../polyfills';
 
 import {HttpClientModule} from '@angular/common/http';
 
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatNativeDateModule} from '@angular/material';
 
@@ -19,14 +21,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { LoginComponent } from './login/login.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    LoginComponent
   ],
   imports: [
+    NgbModule,
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
@@ -34,7 +38,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     DemoMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    NgbModule,
     CalendarModule.forRoot({
       provide: DateAdapter,
       useFactory: adapterFactory

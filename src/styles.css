@@ -1,5 +1,7 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import "~bootstrap/dist/css/bootstrap.css"; 
 @import '~angular-calendar/css/angular-calendar.css';
+
 
 body { 
   font-family: Roboto, Arial, sans-serif;

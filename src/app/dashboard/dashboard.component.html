@@ -1,13 +1,13 @@
 <div class="row text-center">
   <div class="col-md-4">
     <div class="btn-group">
-      <div class="btn btn-primary" mwlCalendarPreviousView [(viewDate)]="viewDate" (viewDateChange)="activeDayIsOpen = false">
+      <div class="btn btn-primary" mwlCalendarPreviousView [(viewDate)]="viewDate" [view]="view" (viewDateChange)="activeDayIsOpen = false">
         Previous
       </div>
       <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
         Today
       </div>
-      <div class="btn btn-primary" mwlCalendarNextView [(viewDate)]="viewDate" (viewDateChange)="activeDayIsOpen = false">
+      <div class="btn btn-primary" mwlCalendarNextView [(viewDate)]="viewDate" [view]="view" (viewDateChange)="activeDayIsOpen = false">
         Next
       </div>
     </div>
