@@ -22,12 +22,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { FindPasswordComponent } from './find-password/find-password.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent,
+    FindPasswordComponent
   ],
   imports: [
     NgbModule,
