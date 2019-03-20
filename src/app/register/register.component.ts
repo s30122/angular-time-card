@@ -16,10 +16,10 @@ export class RegisterComponent implements OnInit {
     txt_store_name:new  FormControl('',[Validators.required]),
     txt_store_location:new  FormControl('',[Validators.required]),
     txt_boss_code:new  FormControl('',[Validators.required,Validators.minLength(6)]),
-    txt_boss_password:new  FormControl('',[Validators.required]),
+    txt_boss_password:new  FormControl('',[Validators.required,Validators.minLength(6)]),
     txt_boss_name:new  FormControl('',[Validators.required]),
     txt_boss_birthday:new  FormControl('',[Validators.required]),
-    txt_boss_email:new  FormControl('',[Validators.required]),
+    txt_boss_email:new  FormControl('',[Validators.required,Validators.email]),
     txt_boss_phone:new  FormControl('',[Validators.required]),
   });
   categories=[{id:1,name:'餐飲業'},{id:2,name:'服務業'},{id:3,name:'金融業'},];
@@ -42,12 +42,16 @@ export class RegisterComponent implements OnInit {
      return this.errMsg;
    }
    errMsg_pattern_3character(){
+     this.registerForm.invalid
     return "3個大寫英文單字";
   }
   errMsg_min(){
     return "最少請輸入6字元";
   }
+  errMsg_email(){
+    return "email格式";
+  }
   onSubmit(){
-    console.log(this.registerForm.value);
+    alert(this.registerForm.value);
   }
 }
