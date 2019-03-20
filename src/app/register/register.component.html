@@ -1,3 +1,55 @@
-<p>
-  register works!
-</p>
+<mat-grid-list cols="3">
+  <mat-grid-tile></mat-grid-tile>
+  <mat-grid-tile colspan="2">
+    <form [formGroup]="registerForm" class="myform" (ngSubmit)="onSubmit()">
+      <h1>公司資訊</h1>
+      <mat-form-field hintLabel="請輸入3個大寫英文單字為公司代碼">
+        <mat-label for="company_code">公司代碼 : </mat-label>
+        <input matInput maxlength="3" name="company_code" formControlName="txt_company_code">
+        <mat-error *ngIf="txt_company_code.errors?.required">{{errMsg_required()}}</mat-error>
+        <mat-error *ngIf="txt_company_code.errors?.pattern">{{errMsg_pattern_3character()}}</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label for="company_name">公司名稱 : </mat-label>
+        <input matInput name="company_name" formControlName="txt_company_name">
+        <mat-error *ngIf="txt_company_name.errors?.required">{{errMsg_required()}}</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label for="company_category">公司類別 : </mat-label>
+        <mat-select name="company_category" formControlName="select_company_category">
+          <mat-option *ngFor="let item of categories" [(value)]="item.id">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="select_company_category.errors?.required">{{errMsg_required()}}</mat-error>
+      </mat-form-field>
+
+      <h1>門市資訊</h1>
+      <mat-form-field>
+        <mat-label for="store_name">門市名稱 : </mat-label>
+        <input matInput name="store_name" formControlName="txt_store_name">
+        <mat-error *ngIf="txt_store_name.errors?.required">{{errMsg_required()}}</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label for="store_location">門市座標 : </mat-label>
+        <input matInput name="store_location" formControlName="txt_store_location">
+        <mat-error *ngIf="txt_store_location.errors?.required">{{errMsg_required()}}</mat-error>
+      </mat-form-field>
+
+      <h1>老闆帳號</h1>
+      <mat-form-field hintLabel="最少請輸入6字元">
+        <mat-label for="boss_code">公司代碼 : </mat-label>
+        <span [hidden]="!txt_company_code.value" matPrefix>{{txt_company_code.value+"_"}}</span>
+        <input matInput minlength="6" name="boss_code" formControlName="txt_boss_code">
+      
+        <mat-error *ngIf="txt_boss_code.errors?.required">{{errMsg_required()}}</mat-error>
+        <mat-error *ngIf="txt_boss_code.errors?.pattern">{{errMsg_pattern_3character()}}</mat-error>
+      </mat-form-field>
+      <br>
+      <button type="submit">送出</button>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -13,7 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material';
+import {MatNativeDateModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
 
 
 import {DemoMaterialModule} from '../material-module';
@@ -24,6 +24,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FindPasswordComponent } from './find-password/find-password.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FindPasswordComponent } from './find-password/find-password.component';
     DashboardComponent,
     LoginComponent,
     RegisterComponent,
-    FindPasswordComponent
+    FindPasswordComponent,
+    
   ],
   imports: [
     NgbModule,
@@ -47,6 +49,12 @@ import { FindPasswordComponent } from './find-password/find-password.component';
       useFactory: adapterFactory
     }),
     AppRoutingModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
     
   ],
   providers: [],
