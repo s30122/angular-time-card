@@ -26,6 +26,8 @@ import { RegisterComponent } from './register/register.component';
 import { FindPasswordComponent } from './find-password/find-password.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { PublicMessageComponent } from './public-message/public-message.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -57,6 +59,7 @@ import { PublicMessageComponent } from './public-message/public-message.componen
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
     
   ],
   providers: [],
