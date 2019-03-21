@@ -25,6 +25,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { FindPasswordComponent } from './find-password/find-password.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { PublicMessageComponent } from './public-message/public-message.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { LayoutModule } from '@angular/cdk/layout';
     LoginComponent,
     RegisterComponent,
     FindPasswordComponent,
+    PublicMessageComponent,
     
   ],
   imports: [

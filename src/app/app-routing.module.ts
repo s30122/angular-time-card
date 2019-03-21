@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { FindPasswordComponent } from './find-password/find-password.component';
 import { RegisterComponent } from './register/register.component';
+import { PublicMessageComponent } from './public-message/public-message.component';
 
 const routes: Routes = 
 [
@@ -27,6 +28,10 @@ const routes: Routes =
   {
     path: 'register',
     component: RegisterComponent
+  },
+  {
+    path: 'message',
+    component: PublicMessageComponent
   },
 ];
 
