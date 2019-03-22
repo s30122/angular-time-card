@@ -1,4 +1,7 @@
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div>
+    {{emp.name+' '+emp.code}}
+  </div>
   <h1>公司資訊</h1>
   <mat-form-field hintLabel="請輸入3個大寫英文單字為公司代碼">
     <mat-label for="company_code">公司代碼 : </mat-label>

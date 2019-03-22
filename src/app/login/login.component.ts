@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import {Employees} from '../mock-employees';
 import { Router } from '@angular/router';
+import { Store, select } from '@ngrx/store';
+import { Login } from './login.actions';
+import { Set_Login_Emp } from '../storage/store-service';
 
 
 @Component({
@@ -26,6 +29,7 @@ export class LoginComponent implements OnInit {
    var login_emp= Employees.find(x=>x.code=== this.model.code);
     if(login_emp){
       if(login_emp.password===this.model.password){
+        Set_Login_Emp(login_emp);
         this.router.navigate(['/dashboard'])
       }else{
         alert('密碼錯誤');

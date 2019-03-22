@@ -1,3 +1,17 @@
+<ng-template
+      #defaultTemplate
+      let-day="day"
+      let-locale="locale">
+      <div class="cal-cell-top">
+        <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+      </div>
+      <div class="cal-events" *ngIf="day.events.length > 0">
+        <small *ngFor="let event of day.events">
+          {{event.title+' '+event.meta[0]+':'+event.meta[1]}}
+        </small>
+      </div>
+    </ng-template>
+
 <div class="row text-center">
   <div class="col-md-4">
     <div class="btn-group">
@@ -18,6 +32,7 @@
   </div>
 </div>
 <div>
-  <mwl-calendar-month-view [viewDate]="viewDate" [events]="events" [refresh]="refresh">
+  <mwl-calendar-month-view [viewDate]="viewDate" [events]="events" 
+  [refresh]="refresh" [cellTemplate]="defaultTemplate">
   </mwl-calendar-month-view>
 </div>

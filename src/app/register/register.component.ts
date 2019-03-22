@@ -1,5 +1,6 @@
 import { Component, OnInit,NgModule } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Get_Login_Emp } from '../storage/store-service';
 
 @Component({
   selector: 'app-register',
@@ -8,6 +9,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   errMsg="必填項目";
+  emp=Get_Login_Emp();
 
   registerForm=new FormGroup({
     txt_company_code:new  FormControl('',[Validators.required,Validators.pattern("[A-Z]{3}")]),

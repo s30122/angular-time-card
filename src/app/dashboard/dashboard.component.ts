@@ -2,6 +2,9 @@ import { Component, OnInit,ChangeDetectionStrategy } from '@angular/core';
 import { CalendarEvent } from 'calendar-utils';
 import { CalendarView,CalendarCommonModule, CalendarMonthModule  } from 'angular-calendar';
 import { Subject } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { Login } from '../login/login.actions';
+
 
 
 @Component({
@@ -16,14 +19,18 @@ export class DashboardComponent implements OnInit {
   events:CalendarEvent[]=[];
   view: CalendarView = CalendarView.Month;
   refresh: Subject<any> = new Subject();
-  constructor() { }
+
+
+  constructor() {
+   }
 
   ngOnInit() {
   }
   addEvent(){
     this.events.push({
       start:new Date(),
-      title:'小華'
+      title:'小華',
+      meta:['08:00','18:00']
     });
     this.refresh.next();
   }
