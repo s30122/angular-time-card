@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "model": [
+        "dist/model"
+      ],
+      "model/*": [
+        "dist/model/*"
+      ]
+    }
   }
 }

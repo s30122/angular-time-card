@@ -132,6 +132,169 @@
           }
         }
       }
+    },
+    "Model": {
+      "root": "projects/model",
+      "sourceRoot": "projects/model/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/model/tsconfig.lib.json",
+            "project": "projects/model/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/model/src/test.ts",
+            "tsConfig": "projects/model/tsconfig.spec.json",
+            "karmaConfig": "projects/model/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/model/tsconfig.lib.json",
+              "projects/model/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "webapi": {
+      "root": "projects/webapi/",
+      "sourceRoot": "projects/webapi/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/webapi",
+            "index": "projects/webapi/src/index.html",
+            "main": "projects/webapi/src/main.ts",
+            "polyfills": "projects/webapi/src/polyfills.ts",
+            "tsConfig": "projects/webapi/tsconfig.app.json",
+            "assets": [
+              "projects/webapi/src/favicon.ico",
+              "projects/webapi/src/assets"
+            ],
+            "styles": [
+              "projects/webapi/src/styles.css"
+            ],
+            "scripts": [],
+            "es5BrowserSupport": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/webapi/src/environments/environment.ts",
+                  "with": "projects/webapi/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "webapi:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "webapi:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "webapi:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/webapi/src/test.ts",
+            "polyfills": "projects/webapi/src/polyfills.ts",
+            "tsConfig": "projects/webapi/tsconfig.spec.json",
+            "karmaConfig": "projects/webapi/karma.conf.js",
+            "styles": [
+              "projects/webapi/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/webapi/src/favicon.ico",
+              "projects/webapi/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/webapi/tsconfig.app.json",
+              "projects/webapi/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "webapi-e2e": {
+      "root": "projects/webapi-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/webapi-e2e/protractor.conf.js",
+            "devServerTarget": "webapi:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "webapi:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/webapi-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "TimeCard"
