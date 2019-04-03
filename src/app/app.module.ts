@@ -27,7 +27,7 @@ import { FindPasswordComponent } from './find-password/find-password.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { PublicMessageComponent } from './public-message/public-message.component';
 import { StoreModule } from '@ngrx/store';
-import { reducer } from './reducers';
+import { TestPageComponent } from './test-page/test-page.component';
 
 
 @NgModule({
@@ -38,6 +38,7 @@ import { reducer } from './reducers';
     RegisterComponent,
     FindPasswordComponent,
     PublicMessageComponent,
+    TestPageComponent,
     
   ],
   imports: [

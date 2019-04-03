@@ -5,12 +5,13 @@ import { LoginComponent } from './login/login.component';
 import { FindPasswordComponent } from './find-password/find-password.component';
 import { RegisterComponent } from './register/register.component';
 import { PublicMessageComponent } from './public-message/public-message.component';
+import {TestPageComponent} from './test-page/test-page.component'
 
 const routes: Routes = 
 [
   {
     path: '',
-    redirectTo: '/dashboard',
+    redirectTo: '/test',
     pathMatch: 'full'
   },
   {
@@ -32,6 +33,10 @@ const routes: Routes =
   {
     path: 'message',
     component: PublicMessageComponent
+  },
+  {
+    path: 'test',
+    component: TestPageComponent
   },
 ];
 
